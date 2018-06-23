@@ -1,1 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物商城</title>
+    <style>
+        /*---清空所有页面的默认边距---*/
+        *
+        {
+            margin:0;
+            padding:0;
+        }
+        body
+        {
+            background-color:#ccc;
+        }
+        /*---给页面导航栏添加样式---*/
+        .header
+        {
+            height:200px;
+            position:relative;
+        }
+        .header .top
+        {
+            width:300px;
+            height:150px;
+            border:1px solid red;
+           /* box-sizing: border-box;*/
+             position:absolute;
+            left:0;
+            top:25px;
+        }
+        .header .top img
+        {
+            width:300px;
+            height:150px;
+        }
+        /*--------------------------------------*/
+        .header .logo
+        {
+            width:980px;
+            height:50px;
+            position:absolute;
+            left:370px;
+            top:0;
+        }
+        .header .logo  ul
+        {
+            width:980px;
+            height:50px;
+            background-color:#ccc;
+        }
+        .header .logo ul li
+        {
+            list-style: none;
+            float:left;
+            line-height:50px;
+            margin-left:150px;
+        }
+        .header .logo ul li a
+        {
+            color:black;
+            font-size:16px;
+        }
+        /*-----------------------------------------*/
+        .header .nav
+        {
+            width:980px;
+            height:150px;
+            position:absolute;
+            left:370px;
+            top:50px;
+           line-height:150px;
+        }
+        .header .nav input[type=text]
+        {
+            width:600px;
+            height:35px;
+            margin-left:30px;
+        }
+        .header .nav input[type=button]
+        {
+            width:100px;
+            height:35px;
+            border:2px solid orangered;
+        }
+        /*---给内容区添加样式表---*/
+        .content
+        {
+            height:3000px;
+        }
+        .content .zuo
+        {
+            height:50px;
+            background-image:url("image/daohang.png");
+            position:relative;
+        }
+        .content .zuo .zuo_left
+        {
+            width:300px;
+            height:50px;
+            font-size:18px;
+            color:white;
+            position:absolute;
+            left:150px;
+            top:10px;
+        }
+        .content .zuo .zuo_right
+        {
+            width:720px;
+            height:50px;
+            position:absolute;
+            left:500px;
+            top:10px;
+        }
+        .content .zuo .zuo_right li
+        {
+            list-style:none;
+            float:left;
+            margin-left:80px;
+        }
+        .content .zuo .zuo_right li a
+        {
+            color:white;
+        }
+        /*----------------------------------------*/
+        .content .content_left
+        {
+            width:300px;
+            height:500px;
+            position:relative;
+            left:50px;
+            top:0;
+            border:1px solid red;
+            background-image:url("image/xingkong.png");
+            /*float:left;
+            margin-left:50px;*/
+        }
+        .content .content_left a
+        {
+            color:yellow;
+        }
+        .content .content_left .pin1
+        {
+            width:300px;
+            height:50px;
+            text-align:center;
+            line-height:50px;
+        }
+        .content .content_left .pin1 li
+        {
+            list-style: none;
+            float:left;
+            margin-left:10px;
+        }
+        .content .content_left .pin1 .ni
+        {
+            width:700px;
+            height:500px;
+            background-color:white;
+            position:absolute;
+            left:300px;
+            top:0;
+            border:1px solid red;
+            border-left:none;
+            transition:all 0.002s;
+            display:none;
+           /* opacity:0;*/
+        }
+        .content .content_left .pin1 .ni li
+        {
+            margin-left:30px;
+        }
+        .content .content_left .pin1:hover .ni
+        {
+            display:block;
+        }
+        /*----------------------------------------------*/
+        .content .content_left .pin2
+        {
+            width:300px;
+            height:50px;
+            text-align: center;
+            line-height:50px;
+        }
+        .content .content_left .pin2 li
+        {
+            list-style:none;
+            float:left;
+            margin-left:10px;
+        }
+        .content .content_left .pin2 .ni2
+        {
+            width:700px;
+            height:500px;
+            background-color:white;
+            position:absolute;
+            left:300px;
+            top:0;
+            border:1px solid red;
+            border-left:none;
+            transition:all 1s;
+            display:none;
+        }
+        .content .content_left .pin2:hover .ni2
+        {
+            display:block;
+        }
+        /*--------------------------------------*/
+        .content .content_left .pin3
+        {
+            width:300px;
+            height:50px;
+            text-align: center;
+            line-height:50px;
+        }
+        .content .content_left .pin3 li
+        {
+            list-style:none;
+            float:left;
+            margin-left:10px;
+        }
+        .content .content_left .pin3 .ni3
+        {
+            width:700px;
+            height:500px;
+            background-color:white;
+            position:absolute;
+            left:300px;
+            top:0;
+            border:1px solid red;
+            border-left:none;
+            transition:all 1s;
+            display:none;
+        }
+        .content .content_left .pin3:hover .ni3
+        {
+            display:block;
+        }
+        /*---------------------------------*/
+        .content .content_left .pin4
+        {
+            width:300px;
+            height:50px;
+            text-align:center;
+            line-height:50px;
+        }
+        .content .content_left .pin4 li
+        {
+            list-style:none;
+            float:left;
+            margin-left:10px;
+        }
+        .content .content_left .pin4 .ni4
+        {
+            width:700px;
+            height:500px;
+            background-color:white;
+            position:absolute;
+            left:300px;
+            top:0;
+            border:1px solid red;
+            border-left:none;
+            transition:all 1s;
+            display:none;
+        }
+        .content .content_left .pin4:hover .ni4
+        {
+            display:block;
+        }
+        /*--------------------------------*/
+        .content .content_left .pin5
+        {
+            width:300px;
+            height:50px;
+            text-align:center;
+            line-height:50px;
+        }
+        .content .content_left .pin5 li
+        {
+            list-style:none;
+            float:left;
+            margin-left:10px;
+        }
+        .content .content_left .pin5 .ni5
+        {
+            width:700px;
+            height:500px;
+            background-color:white;
+            position:absolute;
+            left:300px;
+            top:0;
+            border:1px solid red;
+            border-left:none;
+            transition:all 1s;
+            display:none;
+        }
+        .content .content_left .pin5:hover .ni5
+        {
+            display:block;
+        }
+        /*---------------------------------------*/
+        .content .content_left .pin6
+        {
+            width:300px;
+            height:50px;
+            text-align:center;
+            line-height:50px;
+        }
+        .content .content_left .pin6 li
+        {
+            list-style:none;
+            float:left;
+            margin-left:10px;
+        }
+        .content .content_left .pin6 .ni6
+        {
+            width:700px;
+            height:500px;
+            background-color:white;
+            position:absolute;
+            left:300px;
+            top:0;
+            border:1px solid red;
+            border-left:none;
+            transition:all 1s;
+            display:none;
+        }
+        .content .content_left .pin6:hover .ni6
+        {
+            display:block;
+        }
+        /*---------------------------------------*/
+        .content .content_left .pin7
+        {
+            width:300px;
+            height:50px;
+            text-align:center;
+            line-height:50px;
+        }
+        .content .content_left .pin7 li
+        {
+            list-style:none;
+            float:left;
+            margin-left:10px;
+        }
+        .content .content_left .pin7 .ni7
+        {
+            width:700px;
+            height:500px;
+            background-color:white;
+            position:absolute;
+            left:300px;
+            top:0;
+            border:1px solid red;
+            border-left:none;
+            transition:all 1s;
+            display:none;
+        }
+        .content .content_left .pin7:hover .ni7
+        {
+            display:block;
+        }
+        /*---------------------------------------*/
+        .content .content_left .pin8
+        {
+            width:300px;
+            height:50px;
+            text-align:center;
+            line-height:50px;
+        }
+        .content .content_left .pin8 li
+        {
+            list-style:none;
+            float:left;
+            margin-left:10px;
+        }
+        .content .content_left .pin8 .ni8
+        {
+            width:700px;
+            height:500px;
+            background-color:white;
+            position:absolute;
+            left:300px;
+            top:0;
+            border:1px solid red;
+            border-left:none;
+            transition:all 1s;
+            display:none;
+        }
+        .content .content_left .pin8:hover .ni8
+        {
+            display:block;
+        }
+        /*---------------------------------------*/
+        .content .content_left .pin9
+        {
+            width:300px;
+            height:50px;
+            text-align:center;
+            line-height:50px;
+        }
+        .content .content_left .pin9 li
+        {
+            list-style:none;
+            float:left;
+            margin-left:10px;
+        }
+        .content .content_left .pin9 .ni9
+        {
+            width:700px;
+            height:500px;
+            background-color:white;
+            position:absolute;
+            left:300px;
+            top:0;
+            border:1px solid red;
+            border-left:none;
+            transition:all 1s;
+            display:none;
+        }
+        .content .content_left .pin9:hover .ni9
+        {
+            display:block;
+        }
+        /*---------------------------------------*/
+        .content .content_left .pin0
+        {
+            width:300px;
+            height:50px;
+            text-align:center;
+            line-height:50px;
+        }
+        .content .content_left .pin0 li
+        {
+            list-style:none;
+            float:left;
+            margin-left:10px;
+        }
+        .content .content_left .pin0 .ni0
+        {
+            width:700px;
+            height:500px;
+            background-color:white;
+            position:absolute;
+            left:300px;
+            top:0;
+            border:1px solid red;
+            border-left:none;
+            transition:all 1s;
+            display:none;
+        }
+        .content .content_left .pin0:hover .ni0
+        {
+            display:block;
+        }
+        /*----------------滚动图片开始------------------------*/
+        .content .content_center
+        {
+            width:700px;
+            height:500px;
+           /* position:absolute;
+            left:355px;
+            top:500px;
+            */
+            margin-left:352px;
+            margin-top:-500px;
+            overflow:hidden;
+            background-color:blue;
+        }
+        .content .content_center ul
+        {
+            width:4800px;
+            height:500px;
+        }
+        .content .content_center ul li
+        {
+            list-style:none;
+            width:700px;
+            height:500px;
+            float:left;
+        }
+        .content .content_center img
+        {
+            width:700px;
+            height:500px;
+            animation: zan 10s linear 0s infinite;
+        }
+        @keyframes zan {
+            from
+            {
+                margin-left:0;
+            }
+            to
+            {
+                margin-left:-2800px;
+            }
+        }
+        /*------------------音频播放器---------------------------------*/
+        .content .music
+        {
+            width:290px;
+            height:500px;
+            margin-left:1055px;
+            margin-top:-500px;
+            border:1px solid red;
+            box-sizing:border-box;
+        }
+        /*------------------大广告区-------------------------------------*/
+        .content .advertising
+        {
+            width:980px;
+            height:400px;
+            /*margin:0 auto;*/
+            margin-top:10px;
+            margin-left:200px;
+            overflow:hidden;
+        }
+        .content .advertising ul
+        {
+            width:980px;
+            height:400px;
+        }
+        .content .advertising ul li
+        {
+            list-style: none;
 
+        }
+        .content .advertising img
+        {
+            width:980px;
+            height:200px;
+        }
+        /*------------商品展览区--------------------*/
+        .content .advertising2
+        {
+            width:1300px;
+            height:800px;
+            margin-left:40px;
+            margin-top:10px;
+        }
+        /*--------------右边商品展览区--------------------------*/
+        .content .advertising2 .advertising_left
+        {
+            width:640px;
+            height:800px;
+            float:left;
+            background-color:white;
+        }
+        .content .advertising2 .advertising_left .logo_top
+        {
+            width:640px;
+            height:50px;
+        }
+        .content .advertising2 .advertising_left .logo_top img
+        {
+            float:left;
+        }
+        .content .advertising2 .advertising_left .logo_top .zan
+        {
+            width:200px;
+            height:50px;
+            float:left;
+            margin-left:10px;
+        }
+        .content .advertising2 .advertising_left .logo_top .zan li
+        {
+            width:200px;
+            height:25px;
+            margin-top:25px;
+            list-style:none;
+        }
+        .content .advertising2 .advertising_left .logo_top .zan li img
+        {
+            width:100px;
+            height:25px;
+        }
+        .content .advertising2 .advertising_left .logo_top .code
+        {
+            width:66px;
+            height:66px;
+            position:absolute;
+            margin-top:-20px;
+            transition:all 1s;
+            display:none;
+        }
+        .content .advertising2 .advertising_left .logo_top .code li
+        {
+            list-style:none;
+        }
+        .content .advertising2 .advertising_left .logo_top .code li img
+        {
+            width:66px;
+            height:66px;
+        }
+        .content .advertising2 .advertising_left .logo_top .zan:hover .code
+        {
+            display:block;
+        }
+        .content .advertising2 .advertising_left .logo_top .model
+        {
+            width:100px;
+            height:50px;
+            float:right;
+        }
+        .content .advertising2 .advertising_left .logo_top .model li
+        {
+            list-style:none;
+            width:100px;
+            height:25px;
+            margin-top:25px;
+        }
+        .content .advertising2 .advertising_left .logo_top .model li a
+        {
+            color:#ccc;
+        }
+        /*-------        右边商品展览区上                --------*/
+        .content .advertising2 .advertising_left .logo_center
+        {
+            width:640px;
+            height:375px;
+        }
+        .content .advertising2 .advertising_left .logo_center ul
+        {
+            width:640px;
+            height:375px;
+        }
+        .content .advertising2 .advertising_left .logo_center ul li
+        {
+            list-style: none;
+            float: left;
+            margin-top:5px;
+        }
+        .content .advertising2 .advertising_left .logo_center ul li:nth-child(1)
+        {
+            width:210px;
+            height:375px;
+        }
+        .content .advertising2 .advertising_left .logo_center ul li:nth-child(2)
+        {
+            width:210px;
+            height:375px;
+        }
+        .content .advertising2 .advertising_left .logo_center ul li:nth-child(3)
+        {
+            width:210px;
+            height:375px;
+        }
+        .content .advertising2 .advertising_left .logo_center ul li img
+        {
+            width:200px;
+            height:250px;
+        }
+        /*--------------右边商品展览区下---------------*/
+        .content .advertising2 .advertising_left .logo_bottom
+        {
+            width:640px;
+            height:375px;
+        }
+        .content .advertising2 .advertising_left .logo_bottom ul
+        {
+            width:640px;
+            height:375px;
+        }
+        .content .advertising2 .advertising_left .logo_bottom ul li
+        {
+            list-style: none;
+            float: left;
+            margin-top:5px;
+        }
+        .content .advertising2 .advertising_left .logo_bottom ul li:nth-child(1)
+        {
+            width:210px;
+            height:375px;
+        }
+        .content .advertising2 .advertising_left .logo_bottom ul li:nth-child(2)
+        {
+            width:210px;
+            height:375px;
+        }
+        .content .advertising2 .advertising_left .logo_bottom ul li:nth-child(3)
+        {
+            width:210px;
+            height:375px;
+        }
+        .content .advertising2 .advertising_left .logo_bottom ul li img
+        {
+            width:200px;
+            height:250px;
+        }
+            /*-----------------左边商品展览区-------------------------------*/
+        .content .advertising2 .advertising_right
+        {
+            width:640px;
+            height:800px;
+            float:right;
+            background-color:white;
+        }
+        /*---底部添加样式---*/
+        .footer
+        {
+            height:150px;
+            background-color:blue;
+        }
+    </style>
+</head>
+<body>
+<!--  导航栏开始-->
+<div class="header">
+    <div class="top">
+        <a href="#"><img src="image/logo.jpg"/></a>
+    </div>
+    <!--           -->
+    <div class="logo">
+        <ul>
+           <li><a href="">登录</a></li>
+           <li><a href="">注册</a></li>
+           <li><a href="">物流信息</a></li>
+           <li><a href="">购物车</a></li>
+           <li><a href="">收藏</a></li>
+        </ul>
+    </div>
+    <!--                -->
+    <div class="nav">
+        <input type="text"/>
+        <a href=""><input type="button" value="搜索"/></a>
+    </div>
+</div>
+<!--  内容开始   -->
+<div class="content">
+    <div class="zuo">
+       <ul class="zuo_left">主题市场</ul>
+        <ul class="zuo_right">
+         <li><a href="https://www.jd.com/">京东</a></li>
+         <li><a href="https://www.taobao.com/">淘宝</a></li>
+         <li><a href="https://www.tmall.com/">天猫</a></li>
+         <li><a href="https://ju.taobao.com/">聚划算</a></li>
+         <li><a href="https://www.vip.com/">唯品会</a></li>
+         <li><a href="https://www.suning.com/">苏宁</a></li>
+        </ul>
+    </div>
+    <!--        选项卡开始             -->
+    <div class="content_left">
+        <ul class="pin1">
+           <li><a href="https://www.taobao.com/markets/nanzhuang/2017new?spm=a21bo.2017.201867-main.2.5af911d9LGxt63">女装</a></li>
+            <li>/</li>
+           <li><a href="https://www.taobao.com/markets/nanzhuang/2017new?spm=a21bo.2017.201867-main.2.5af911d9LGxt63">男装</a></li>
+            <li>/</li>
+           <li><a href="https://www.taobao.com/markets/nanzhuang/2017new?spm=a21bo.2017.201867-main.2.5af911d9LGxt63">内衣</a></li>
+            <ul class="ni">
+                <li><a href="">女夏装</a></li>
+                <li><a href="">连衣裙</a></li>
+                <li><a href="">背衫</a></li>
+                <li><a href="">半身裙</a></li>
+                <li><a href="">牛仔裤</a></li>
+                <li><a href="">高跟鞋</a></li>
+                <li><a href="">板鞋</a></li>
+                <li><a href="">凉鞋</a></li>
+                <li><a href="">布鞋</a></li>
+            </ul>
+        </ul>
+        <ul class="pin2">
+            <li><a href="https://www.taobao.com/markets/bao/xiangbao?spm=a21bo.2017.201867-main.5.5af911d9LGxt63">鞋靴</a></li>
+            <li>/</li>
+            <li><a href="https://www.taobao.com/markets/bao/xiangbao?spm=a21bo.2017.201867-main.5.5af911d9LGxt63">箱包</a></li>
+            <li>/</li>
+            <li><a href="https://www.taobao.com/markets/bao/xiangbao?spm=a21bo.2017.201867-main.5.5af911d9LGxt63">配件</a></li>
+            <ul class="ni2">
+                <li>25</li>
+            </ul>
+        </ul>
+        <ul class="pin3">
+            <li><a href="https://www.taobao.com/markets/qbb/index?spm=a21bo.2017.201867-main.7.5af911d9LGxt63&pvid=b9f2df4c-6d60-4af4-b500-c5168009831f&scm=1007.12802.34660.100200300000000">儿童玩具</a></li>
+            <li>/</li>
+            <li><a href="https://www.taobao.com/markets/qbb/index?spm=a21bo.2017.201867-main.7.5af911d9LGxt63&pvid=b9f2df4c-6d60-4af4-b500-c5168009831f&scm=1007.12802.34660.100200300000000">孕产</a></li>
+            <li>/</li>
+            <li><a href="https://www.taobao.com/markets/qbb/index?spm=a21bo.2017.201867-main.7.5af911d9LGxt63&pvid=b9f2df4c-6d60-4af4-b500-c5168009831f&scm=1007.12802.34660.100200300000000">用品</a></li>
+            <li>></li>
+           <ul class="ni3">
+               <li>53</li>
+           </ul>
+        </ul>
+        <ul class="pin4">
+           <li><a href="https://www.taobao.com/markets/3c/tbdc?spm=a21bo.2017.201867-main.11.5af911d9LGxt63">家电</a></li>
+           <li>/</li>
+           <li><a href="https://www.taobao.com/markets/3c/tbdc?spm=a21bo.2017.201867-main.11.5af911d9LGxt63">数码</a></li>
+           <li>/</li>
+           <li><a href="https://www.taobao.com/markets/3c/tbdc?spm=a21bo.2017.201867-main.11.5af911d9LGxt63">手机</a></li>
+           <li>></li>
+            <ul class="ni4">
+                <li>35</li>
+            </ul>
+        </ul>
+        <ul class="pin5">
+            <li><a href="https://www.taobao.com/market/baihuo/xihuyongpin.php?spm=a21bo.2017.201867-main.14.5af911d9LGxt63">美妆</a></li>
+            <li>/</li>
+            <li><a href="https://www.taobao.com/market/baihuo/xihuyongpin.php?spm=a21bo.2017.201867-main.14.5af911d9LGxt63">洗护</a></li>
+            <li>/</li>
+            <li><a href="https://www.taobao.com/market/baihuo/xihuyongpin.php?spm=a21bo.2017.201867-main.14.5af911d9LGxt63">保健品</a></li>
+            <li>></li>
+            <ul class="ni5">
+                <li>00000000</li>
+            </ul>
+        </ul>
+        <ul class="pin6">
+            <li><a href="https://www.taobao.com/market/peishi/shoubiao.php?spm=a21bo.2017.201867-main.18.5af911d9LGxt63">珠宝</a></li>
+            <li>/</li>
+            <li><a href="https://www.taobao.com/market/peishi/shoubiao.php?spm=a21bo.2017.201867-main.18.5af911d9LGxt63">眼镜</a></li>
+            <li>/</li>
+            <li><a href="https://www.taobao.com/market/peishi/shoubiao.php?spm=a21bo.2017.201867-main.18.5af911d9LGxt63">手表</a></li>
+            <li>></li>
+            <ul class="ni6">
+                <li>3556555</li>
+            </ul>
+        </ul>
+        <ul class="pin7" >
+            <li><a href="https://www.taobao.com/markets/coolcity/coolcityHome?spm=a21bo.2017.201867-main.20.5af911d9LGxt63">运动</a></li>
+            <li>/</li>
+            <li><a href="https://www.taobao.com/markets/coolcity/coolcityHome?spm=a21bo.2017.201867-main.20.5af911d9LGxt63">户外</a></li>
+            <li>/</li>
+            <li><a href="https://www.taobao.com/markets/coolcity/coolcityHome?spm=a21bo.2017.201867-main.20.5af911d9LGxt63">乐器</a></li>
+            <li>></li>
+            <ul class="ni7">
+                <li>358895655687</li>
+            </ul>
+        </ul>
+        <ul class="pin8">
+            <li><a href="https://www.taobao.com/markets/acg/yingshi?spm=a21bo.2017.201867-main.24.5af911d9LGxt63">游戏</a></li>
+            <li>/</li>
+            <li><a href="https://www.taobao.com/markets/acg/yingshi?spm=a21bo.2017.201867-main.24.5af911d9LGxt63">动漫</a></li>
+            <li>/</li>
+            <li><a href="https://www.taobao.com/markets/acg/yingshi?spm=a21bo.2017.201867-main.24.5af911d9LGxt63">影视</a></li>
+            <li>></li>
+            <ul class="ni8">
+                <li>0000002544454545</li>
+            </ul>
+        </ul>
+        <ul class="pin9">
+            <li><a href="https://chi.taobao.com/?spm=a21bo.2017.201867-main.26.5af911d9LGxt63">美食</a></li>
+            <li>/</li>
+            <li><a href="https://chi.taobao.com/?spm=a21bo.2017.201867-main.26.5af911d9LGxt63">生鲜</a></li>
+            <li>/</li>
+            <li><a href="https://chi.taobao.com/?spm=a21bo.2017.201867-main.26.5af911d9LGxt63">零食</a></li>
+            <li>></li>
+            <ul class="ni9">
+                <li>35555555555555555555555555</li>
+            </ul>
+        </ul>
+        <ul class="pin0">
+            <li><a href="https://xue.taobao.com/?spm=a21bo.2017.201867-main.46.5af911d9LGxt63">学习</a></li>
+            <li>/</li>
+            <li><a href="https://xue.taobao.com/?spm=a21bo.2017.201867-main.46.5af911d9LGxt63">卡券</a></li>
+            <li>/</li>
+            <li><a href="https://xue.taobao.com/?spm=a21bo.2017.201867-main.46.5af911d9LGxt63">本地服务</a></li>
+            <li>></li>
+            <ul class="ni0">
+                <li>3556666666666666662</li>
+            </ul>
+        </ul>
+    </div>
+    <!--        选项卡结束             -->
+    <!--        滚动图片开始            -->
+    <div class="content_center">
+        <ul>
+            <li><a href=""><img src="image/gundong1.png"/></a></li>
+             <li><a href=""><img src="image/gundong2.jpg"/></a></li>
+            <li><a href=""><img src="image/gundong3.jpg"/></a></li>
+            <li><a href=""><img src="image/gundong4.jpg"/></a></li>
+            <li><a href=""><img src="image/gundong1.png"/></a></li>
+            <li><a href=""><img src="image/gundong2.jpg"/></a></li>
+        </ul>
+    </div>
+     <!--       滚动图片结束           -->
+    <!--        音频开始               -->
+    <div class="music">
+        <video width="290px" height="200px" controls="controls"/>
+            <source src="image/shipin.mp4" type="video/mp4"/>
+            <source src="image/shipin.mp4" type="video/ogg" />
+            <source src="image/shipin.mp4" type="video/webm" />
+         </video>
+        <video width="290px" height="200px" controls="controls"/>
+        <source src="image/shipin2.flv" type="video/mp4"/>
+        <source src="image/shipin2.flv" type="video/ogg" />
+        <source src="image/shipin2.flv" type="video/webm" />
+        </video>
+    </div>
+   <!--        音频结束                -->
+    <!--       大广告区                 -->
+    <div class="advertising">
+      <ul>
+         <li><img src="image/guanggao1.jpg"/></li>
+          <li><img src="image/guanggao2.jpg"/></li>
+      </ul>
+    </div>
+    <!--       大广告区结束               -->
+    <!--       商品展览区                 -->
+    <div class="advertising2">
+        <div class="advertising_left">
+            <div class="logo_top">
+               <img src="image/logo2.png"/>
+                <ul class="zan">
+                    <li><img src="image/zan.png"/></li>
+                        <ul class="code">
+                            <li><img src="image/erweima.png"/></li>
+                       </ul>
+                </ul>
+                <ul class="model">
+                    <li><a href="">换一换</a></li>
+                </ul>
+            </div>
+            <div class="logo_center">
+               <ul>
+                   <li>
+                     <a href="https://www.taobao.com/markets/tbhome/yhh-detail?spm=a21bo.2017.201870.1.5af911d92YU3Z
+                     W&contentId=2500000200554094359&scm=1007.12846.65991.0&pvid=59661ab2-e2bd-44dd-9efa-9cf3f225399d">
+                         <img src="image/sp1.jpg"/>
+                        <p>
+                            CREAZIONI五角星刺绣运动裤
+                        </p>
+                     </a>
+                       <p>
+                           聚酯纤维面料，弹性佳可塑性强。
+                       </p>
+                 </li>
+                 <li>
+                    <a href="https://www.taobao.com/markets/tbhome/yhh-detail?spm=a21bo.2017.201870.2.5af911d92YU3ZW&contentId=125662370549&scm=1007.12846.65991.0&pvid=59661ab2-e2bd-44dd-9efa-9cf3f225399d">
+                        <img src="image/sp2.jpg"/>
+                     <p>
+                         韩国碧特超浓缩洗衣液
+                     </p>
+                    </a>
+                     <p>
+                         天然洁净力，分解蛋白酶，去除顽固污渍。去除螨虫，呵护健康。
+                     </p>
+                 </li>
+                 <li>
+                   <a href="https://www.taobao.com/markets/tbhome/yhh-detail?spm=a21bo.2017.201870.3.5af911d92YU3ZW&contentId=2500000200535741000&scm=1007.12846.65991.0&pvid=59661ab2-e2bd-44dd-9efa-9cf3f225399d">
+                       <img src="image/sp3.jpg"/>
+                       <p>
+                           布兰施牛皮套脚皮鞋
+                       </p>
+                   </a>
+                     <p>
+                         鞋面采用压花牛皮设计，独特柔软。
+                     </p>
+                 </li>
+               </ul>
+            </div>
+            <div class="logo_bottom">
+                <ul>
+                    <li>
+                        <a href="https://www.taobao.com/markets/tbhome/yhh-detail?spm=a21bo.2017.201870.1.
+                        5af911d9rgmQxQ&contentId=2500000200577927685&scm=1007.12846.65991.0&pvid=512acd66-a724
+                        -4fbf-b227-cbe9ecd2ac5a">
+                          <img src="image/yifu.jpg"/>
+                            <p>
+                                FENDI 连帽羽绒服
+                            </p>
+                         </a>
+                        <p>
+                            清新的橄榄绿，迤逦出如春天般的气息。
+                        </p>
+                    </li>
+                    <li>
+                        <a href="https://www.taobao.com/markets/tbhome/yhh-detail?spm=a21bo.2017.201870.3.5af911d9rgmQx
+                        Q&contentId=2500000200375519059&scm=1007.12846.65991.
+                        0&pvid=512acd66-a724-4fbf-b227-cbe9ecd2ac5a">
+                            <img src="image/xiezi.jpg"/>
+                            <p>INTERMEZZO 针织衫/毛衣</p>
+                        </a>
+                        <p>采用羊毛混纺面料，不仅柔软亲肤，而且十分保暖，富有弹性。</p>
+                    </li>
+                    <li>
+                        <a href="https://www.taobao.com/markets/tbhome/yhh-detail?spm=a21bo.2017.201870.6.5af911d9rgmQxQ
+                        &contentId=2200000200221916112&scm=1007.12846.65991.0&pvid=512acd66
+                        -a724-4fbf-b227-cbe9ecd2ac5a">
+                            <img src="image/guizi.jpg"/>
+                            <p>美式乡村实木雕花玄关柜</p>
+                        </a>
+                        <p>造型沉稳典雅，柜面雕花洋溢着浓郁的乡村田园气息，搭配醇厚内敛的复古色泽，富有强烈的装饰效果</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="advertising_right"></div>
+    </div>
+</div>
+<!--    底部开始    -->
+<div class="footer"></div>
+</body>
+</html>
